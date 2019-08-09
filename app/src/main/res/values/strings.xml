@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Barbershop</string>
+    <string name="about">About</string>
+    <string name="barbers">Barbers</string>
+    <string name="services">Services</string>
+    <string name="product">Product</string>
+    <string name="contact">Contact</string>
+    <string name="event">Event</string>
+    <string name="navdrawopen">Open</string>
+    <string name="navdrawclose">Close</string>
+    <string name="home">Home</string>
+    <string name="book_appointment">BOOK APPOINTMENT</string>
+    <string name="luis">Luis</string>
+    <string name="geraldo">Geraldo</string>
+    <string name="justin">Justin</string>
+    <string name="samy">Samy</string>
+    <string name="shopaboutstory">I remember those old-fashioned barber shops, the ones where everyone was welcome. You could hear stories about people who made it to the top, never just a place to get your haircut, rather, filled with conversation and good memories. I spent most of my childhood in one. When life threw-out and the day would go wrong, the barber shop was a place that made me feel strong - a place where everyone shares an experience. It\'s places like this, I love the most.</string>
+    <string name="text">Text</string>
+    <string name="call">Call</string>
+    <string name="phonenumber">+1(347) 645 6386</string>
+    <string name="phonetv">Phone</string>
+    <string name="Address">32-86 Steinway St, Long Island City NY, 11103</string>
+    <string name="AdressTV">Address</string>
+    <string name="contact_us">Contact Us</string>
+</resources>
