@@ -6,12 +6,14 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.media.Image;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,17 +22,29 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.conversion.sbx.barbershop.Extra.ViewPageAdapter;
 
+import org.jsoup.Connection;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
 public class EventFragment  extends Fragment {
 
     private static String FACEBOOK_URL = "https://www.facebook.com/longislandcitybarber";
     private static String FACEBOOK_PAGE_ID = "longislandcitybarber";
 
+    private TextView tvWebTest;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v  = inflater.inflate(R.layout.fragment_event, container, false);
 
+        tvWebTest = v.findViewById(R.id.tv_webstest);
+
+        new fetchData().execute();
+
+        //SOCIAL MEDIA SECTION/////////////////////////////////////////////////////////////////////
         //FACEBOOK LINK
         v.findViewById(R.id.iv_Facebook).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,6 +72,34 @@ public class EventFragment  extends Fragment {
         return v;
     }
 
+    private class fetchData extends AsyncTask<Void,Void,Void>{
+        String words;
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            Log.v("WEB","STARTED");
+            try {
+                String url = "https://www.instagram.com/lic_tonsorial/";
+                Connection conn = Jsoup.connect(url).userAgent("Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36");
+                Document doc = conn.get();
+                Elements element = doc.select("p.about_description");
+                words = element.text();
+                Log.v("WEB","words");
+            } catch(Exception e) {
+                e.printStackTrace();
+                Log.v("WEB","FAIL");
+            }
+            return null;
+        }
+
+        @Override
+        protected  void onPostExecute(Void avoid){
+            super.onPostExecute(avoid);
+            tvWebTest.setText(words);
+        }
+    }
+
+    //SOCIAL MEDIA CALL METHODS/////////////////////////////////////////////////////////////
     private void openTwitter(){
         try {
             Intent intent = new Intent(Intent.ACTION_VIEW,
