@@ -22,4 +22,19 @@
     <string name="Address">32-86 Steinway St, Long Island City NY, 11103</string>
     <string name="AdressTV">Address</string>
     <string name="contact_us">Contact Us</string>
+    <string name="cashonly">Cash only All sales are final</string>
+    <string name="kidshaircut">Kids Haircut \n(12 and under)</string>
+    <string name="buzz_cut">Buzz Cut</string>
+    <string name="classic_cut">Classic Cut</string>
+    <string name="_60">$60</string>
+    <string name="senior_haircut">Senior Haircut</string>
+    <string name="cut_amp_shave_or_beard_cut"><![CDATA[Cut & Shave or \nBeard Cut]]></string>
+    <string name="traditional_shave">Traditional Shave</string>
+    <string name="_30">$30</string>
+    <string name="cuts">Cuts</string>
+    <string name="_20">$20</string>
+    <string name="_40">$40</string>
+    <string name="_25">$25</string>
+    <string name="shaves">Shaves</string>
+    <string name="_25_n">$25</string>
 </resources>
