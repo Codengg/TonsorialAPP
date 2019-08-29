@@ -4,7 +4,6 @@ import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.media.Image;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -12,37 +11,29 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.viewpager.widget.ViewPager;
-
-import com.conversion.sbx.barbershop.Extra.ViewPageAdapter;
 
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-public class EventFragment  extends Fragment {
-
-    private static String FACEBOOK_URL = "https://www.facebook.com/longislandcitybarber";
-    private static String FACEBOOK_PAGE_ID = "longislandcitybarber";
+public class EventFragment extends Fragment {
 
     private TextView tvWebTest;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v  = inflater.inflate(R.layout.fragment_event, container, false);
+        View v = inflater.inflate(R.layout.fragment_event, container, false);
 
         tvWebTest = v.findViewById(R.id.tv_webstest);
 
-        new fetchData().execute();
+        //new fetchData().execute();
 
         //SOCIAL MEDIA SECTION/////////////////////////////////////////////////////////////////////
         //FACEBOOK LINK
@@ -72,38 +63,38 @@ public class EventFragment  extends Fragment {
         return v;
     }
 
-    private class fetchData extends AsyncTask<Void,Void,Void>{
+    private class fetchData extends AsyncTask<Void, Void, Void> {
         String words;
 
         @Override
         protected Void doInBackground(Void... voids) {
-            Log.v("WEB","STARTED");
+            Log.v("WEB", "STARTED");
             try {
                 String url = "https://www.instagram.com/lic_tonsorial/";
                 Connection conn = Jsoup.connect(url).userAgent("Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36");
                 Document doc = conn.get();
                 Elements element = doc.select("p.about_description");
                 words = element.text();
-                Log.v("WEB","words");
-            } catch(Exception e) {
+                Log.v("WEB", "words");
+            } catch (Exception e) {
                 e.printStackTrace();
-                Log.v("WEB","FAIL");
+                Log.v("WEB", "FAIL");
             }
             return null;
         }
 
         @Override
-        protected  void onPostExecute(Void avoid){
+        protected void onPostExecute(Void avoid) {
             super.onPostExecute(avoid);
             tvWebTest.setText(words);
         }
     }
 
     //SOCIAL MEDIA CALL METHODS/////////////////////////////////////////////////////////////
-    private void openTwitter(){
+    private void openTwitter() {
+        Uri uri = Uri.parse("twitter://user?screen_name=Lic_tonsorial");
+        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
         try {
-            Intent intent = new Intent(Intent.ACTION_VIEW,
-                    Uri.parse("twitter://user?screen_name=Lic_tonsorial"));
             startActivity(intent);
         } catch (Exception e) {
             startActivity(new Intent(Intent.ACTION_VIEW,
@@ -111,23 +102,21 @@ public class EventFragment  extends Fragment {
         }
     }
 
-    private void openInstagram(){
+    private void openInstagram() {
         Uri uri = Uri.parse("http://instagram.com/_u/lic_tonsorial");
-        Intent likeIng = new Intent(Intent.ACTION_VIEW, uri);
-
-        likeIng.setPackage("com.instagram.android");
-
+        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+        intent.setPackage("com.instagram.android");
         try {
-            startActivity(likeIng);
+            startActivity(intent);
         } catch (ActivityNotFoundException e) {
             startActivity(new Intent(Intent.ACTION_VIEW,
                     Uri.parse("http://instagram.com/lic_tonsorial")));
         }
     }
 
-    private void openFacebook(Context context){
-        Intent facebookIntent = new Intent(Intent.ACTION_VIEW);
+    private void openFacebook(Context context) {
         String facebookUrl = getFacebookPageURL(context);
+        Intent facebookIntent = new Intent(Intent.ACTION_VIEW);
         facebookIntent.setData(Uri.parse(facebookUrl));
         startActivity(facebookIntent);
     }
@@ -135,11 +124,13 @@ public class EventFragment  extends Fragment {
     //method to get the right URL to use in the intent
     private String getFacebookPageURL(Context context) {
         PackageManager packageManager = context.getPackageManager();
+        String FACEBOOK_URL = "https://www.facebook.com/longislandcitybarber";
         try {
             int versionCode = packageManager.getPackageInfo("com.facebook.katana", 0).versionCode;
             if (versionCode >= 3002850) { //newer versions of fb app
                 return "fb://facewebmodal/f?href=" + FACEBOOK_URL;
             } else { //older versions of fb app
+                String FACEBOOK_PAGE_ID = "longislandcitybarber";
                 return "fb://page/" + FACEBOOK_PAGE_ID;
             }
         } catch (PackageManager.NameNotFoundException e) {

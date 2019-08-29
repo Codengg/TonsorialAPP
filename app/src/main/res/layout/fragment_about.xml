@@ -18,21 +18,20 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_margin="10dp">
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
 
 
             <TextView
                 android:id="@+id/tv_product"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="0"
+                android:layout_gravity="center"
                 android:fontFamily="@font/playball"
-                android:text="About us"
+                android:text="@string/about_us"
                 android:textAlignment="center"
                 android:textSize="36sp"
-                android:layout_gravity="center"
                 android:textStyle="bold"
 
                 tools:layout_editor_absoluteX="138dp" />
@@ -42,8 +41,9 @@
                 android:layout_width="379dp"
                 android:layout_height="237dp"
                 android:layout_gravity="center"
-                app:srcCompat="@drawable/about"
                 android:layout_margin="10dp"
+                android:contentDescription="@string/aboutPic1TOPDescription"
+                app:srcCompat="@drawable/about"
                 tools:layout_editor_absoluteX="16dp"
                 tools:layout_editor_absoluteY="72dp" />
 
@@ -67,7 +67,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/playball"
-                android:text="Hours"
+                android:text="@string/hours"
                 android:textAlignment="center"
                 android:textSize="36sp"
                 android:textStyle="bold"
@@ -78,8 +78,7 @@
                 android:id="@+id/LCuts"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="0"
-                android:layout_marginHorizontal="18dp"
+                android:baselineAligned="false"
                 android:orientation="horizontal">
 
                 <LinearLayout
@@ -93,57 +92,50 @@
                         android:id="@+id/editText2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="textPersonName"
-                        android:text="Monday"
+                        android:text="@string/monday"
                         android:textSize="24sp" />
 
                     <TextView
                         android:id="@+id/editText4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="24sp"
-                        android:inputType="textPersonName"
-                        android:text="Tuesday" />
+                        android:text="@string/tuesday"
+                        android:textSize="24sp" />
 
                     <TextView
                         android:id="@+id/editText5"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="24sp"
-                        android:inputType="textPersonName"
-                        android:text="Wednesday" />
+                        android:text="@string/wednesday"
+                        android:textSize="24sp" />
 
                     <TextView
                         android:id="@+id/editText6"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="24sp"
-                        android:inputType="textPersonName"
-                        android:text="Thursday" />
+                        android:text="@string/thursday"
+                        android:textSize="24sp" />
 
                     <TextView
                         android:id="@+id/editText7"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="24sp"
-                        android:inputType="textPersonName"
-                        android:text="Friday" />
+                        android:text="@string/friday"
+                        android:textSize="24sp" />
 
                     <TextView
                         android:id="@+id/editText8"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="24sp"
-                        android:inputType="textPersonName"
-                        android:text="Saturday" />
+                        android:text="@string/saturday"
+                        android:textSize="24sp" />
 
                     <TextView
                         android:id="@+id/editText9"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="24sp"
-                        android:inputType="textPersonName"
-                        android:text="Sunday" />
+                        android:text="@string/sunday"
+                        android:textSize="24sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -157,57 +149,50 @@
                         android:id="@+id/editText3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="24sp"
-                        android:inputType="textPersonName"
-                        android:text="10am - 8pm" />
+                        android:text="@string/_10am_8pm"
+                        android:textSize="24sp" />
 
                     <TextView
                         android:id="@+id/editText10"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="24sp"
-                        android:inputType="textPersonName"
-                        android:text="10am - 8pm" />
+                        android:text="@string/_10am_8pm"
+                        android:textSize="24sp" />
 
                     <TextView
                         android:id="@+id/editText11"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="24sp"
-                        android:inputType="textPersonName"
-                        android:text="10am - 8pm" />
+                        android:text="@string/_10am_8pm"
+                        android:textSize="24sp" />
 
                     <TextView
                         android:id="@+id/editText12"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="24sp"
-                        android:inputType="textPersonName"
-                        android:text="10am - 8pm" />
+                        android:text="@string/_10am_8pm"
+                        android:textSize="24sp" />
 
                     <TextView
                         android:id="@+id/editText13"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="24sp"
-                        android:inputType="textPersonName"
-                        android:text="10am - 8pm" />
+                        android:text="@string/_10am_8pm"
+                        android:textSize="24sp" />
 
                     <TextView
                         android:id="@+id/editText14"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="24sp"
-                        android:inputType="textPersonName"
-                        android:text="10am - 8pm" />
+                        android:text="@string/_10am_8pm"
+                        android:textSize="24sp" />
 
                     <TextView
                         android:id="@+id/editText15"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="24sp"
-                        android:inputType="textPersonName"
-                        android:text="11am - 7pm" />
+                        android:text="@string/_11am_7pm"
+                        android:textSize="24sp" />
 
                 </LinearLayout>
             </LinearLayout>
@@ -218,9 +203,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:layout_weight="0"
                 android:fontFamily="@font/playball"
-                android:text="Photos"
+                android:text="@string/photos"
                 android:textAlignment="center"
                 android:textSize="36sp"
                 android:textStyle="bold"
@@ -231,8 +215,8 @@
                 android:id="@+id/viewPager"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
-                android:padding="40dp"
-                android:layout_marginTop="10dp">
+                android:layout_marginTop="10dp"
+                android:padding="40dp">
 
             </androidx.viewpager.widget.ViewPager>
 

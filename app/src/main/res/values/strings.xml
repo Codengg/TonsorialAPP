@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Barbershop</string>
+    <string name="app_name">TONSORIAL</string>
     <string name="about">About</string>
     <string name="barbers">Barbers</string>
     <string name="services">Services</string>
@@ -19,7 +19,7 @@
     <string name="call">Call</string>
     <string name="phonenumber">+1(347) 645 6386</string>
     <string name="phonetv">Phone</string>
-    <string name="Address">32-86 Steinway St, Long Island City NY, 11103</string>
+    <string name="Address">32–86 Steinway St, Long Island City NY, 11103</string>
     <string name="AdressTV">Address</string>
     <string name="contact_us">Contact Us</string>
     <string name="cashonly">Cash only All sales are final</string>
@@ -37,4 +37,24 @@
     <string name="_25">$25</string>
     <string name="shaves">Shaves</string>
     <string name="_25_n">$25</string>
+    <string name="about_us">About us</string>
+    <string name="tuesday">Tuesday</string>
+    <string name="_10am_8pm">10am - 8pm</string>
+    <string name="sunday">Sunday</string>
+    <string name="photos">Photos</string>
+    <string name="_11am_7pm">11am - 7pm</string>
+    <string name="saturday">Saturday</string>
+    <string name="friday">Friday</string>
+    <string name="thursday">Thursday</string>
+    <string name="wednesday">Wednesday</string>
+    <string name="monday">Monday</string>
+    <string name="hours">Hours</string>
+    <string name="aboutPic1TOPDescription">Picture of BarberShop Supplies on Table</string>
+    <string name="contactPic1Map">Picture of Map Location of Tonsorial barber shop</string>
+    <string name="follow_us">Follow Us</string>
+    <string name="twitter_icon_link">Twitter Icon Link</string>
+    <string name="instagram_icon_link">Instagram Icon Link</string>
+    <string name="facebook_icon_link">Facebook Icon Link</string>
+    <string name="homePic1Background">Background Imgae of Tonsorial BarberShop</string>
+    <string name="homePIC2Icon">Icon Image of Tonorial</string>
 </resources>
