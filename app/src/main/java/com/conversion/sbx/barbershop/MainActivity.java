@@ -7,7 +7,9 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.firebase.messaging.FirebaseMessagingService;
+import com.google.firebase.messaging.RemoteMessage;
 
+import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -17,17 +19,23 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Bundle;
+
 import androidx.appcompat.widget.Toolbar;
 
 import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+import java.util.Map;
+
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout drawer;
+    public final static String NOTIFICATIONEVENT = "FIREBASE_OPEN_EVENT";
+    String openEvent = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,18 +55,32 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        if(savedInstanceState == null){
+
+        if (savedInstanceState == null) {
+            Log.v("NOTIFICATIONx", "STARTED");
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                     new HomeFragment()).commit();
             navigationView.setCheckedItem(R.id.home);
         }
+
+       /* Bundle extras = getIntent().getExtras();
+        if(extras != null){
+            openEvent = extras.getString(NOTIFICATIONEVENT);
+            Log.v("NOTIFICATIONx", openEvent);
+            if(openEvent.equals("EventMenu")){
+                Log.v("NOTIFICATIONx", "GOTOEVENBTPAGE");
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new EventFragment()).commit();
+            }
+        }
+        */
 
         setNotifications();
     }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-        switch (menuItem.getItemId()){
+        switch (menuItem.getItemId()) {
             case R.id.home:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new HomeFragment()).commit();
@@ -72,10 +94,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new BarberFragment()).commit();
                 break;
-            case R.id.contact:
+          /*  case R.id.contact:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new ContactFragment()).commit();
                 break;
+             */
             case R.id.product:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new ProductFragment()).commit();
@@ -84,7 +107,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new ServicesFragment()).commit();
                 break;
-            case  R.id.event:
+            case R.id.event:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new EventFragment()).commit();
                 break;
@@ -96,18 +119,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
     @Override
-    public void onBackPressed(){
-        if(drawer.isDrawerOpen(GravityCompat.START)) {
+    public void onBackPressed() {
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-        }
-        else
+        } else
             super.onBackPressed();
     }
 
-    public void setNotifications(){
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+    public void setNotifications() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel channel =
-                    new NotificationChannel("MyNotifications", "MyNotifications", NotificationManager.IMPORTANCE_DEFAULT);
+                    new NotificationChannel("Event", "Event", NotificationManager.IMPORTANCE_DEFAULT);
             NotificationManager manager = getSystemService(NotificationManager.class);
             manager.createNotificationChannel(channel);
         }
@@ -119,8 +141,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         String msg = "Successfull";
                         if (!task.isSuccessful()) {
                             msg = "Failed";
+                        } else {
+                            Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
                         }
-                        Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
                     }
                 });
     }

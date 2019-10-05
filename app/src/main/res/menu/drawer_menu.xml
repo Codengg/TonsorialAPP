@@ -20,11 +20,11 @@
         <item android:id="@+id/product"
             android:title="@string/product">
         </item>
-
+<!--
         <item android:id="@+id/contact"
             android:title="@string/contact">
         </item>
-
+!-->
         <item android:id="@+id/event"
             android:title="@string/event">
         </item>

@@ -1,5 +1,6 @@
 package com.conversion.sbx.barbershop;
 
+import android.app.ProgressDialog;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
@@ -20,7 +21,8 @@ import java.util.Date;
 import java.util.Locale;
 
 public class BookFragment extends Fragment {
-    private WebView wv_book;
+
+    private ProgressDialog dialog;
 
     @Nullable
     @Override
@@ -30,16 +32,29 @@ public class BookFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        dialog = new ProgressDialog(view.getContext());
+        WebView wv_book;
         wv_book = view.findViewById(R.id.wv_book);
-        wv_book.setWebViewClient(new WebViewClient());
+        //Setup WebView
+        wv_book.setWebViewClient(new WebViewClient(){
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                super.onPageFinished(view, url);
+                if (dialog.isShowing())
+                    dialog.dismiss();
+            }
+        });
+        dialog.setMessage("Loading..Please wait.");
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.show();
 
+        //Settings
         WebSettings webSettings = wv_book.getSettings();
         webSettings.setJavaScriptEnabled(true);
         webSettings.setUserAgentString("BarberShop");
 
+        //Launch Web
         wv_book.loadUrl("https://lictonsorial.resurva.com/book");
-
-
     }
 
 }

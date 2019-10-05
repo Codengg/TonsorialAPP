@@ -1,37 +1,24 @@
 package com.conversion.sbx.barbershop;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
-
 public class HomeFragment extends Fragment {
 
     private Button btn_bookappoint;
-    private Button btn_contact;
-
-    //TIME
-    public static final String inputFormat = "HH:mm";
-
-    private Date date;
-    private Date dateCompareOne;
-    private Date dateCompareTwo;
-
-    private String compareStringOne = "10:00";
-    private String compareStringTwo = "8:00";
-
-    private SimpleDateFormat inputParser;
+    private Button btn_contact, btn_Address, btn_Contact;
 
     @Nullable
     @Override
@@ -42,60 +29,78 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         btn_bookappoint = view.findViewById(R.id.btn_bookappoint);
-        btn_contact = view.findViewById(R.id.btn_contact);
-
-        inputParser = new SimpleDateFormat(inputFormat, Locale.US);
-        //compareDates();
+        btn_Address = view.findViewById(R.id.btn_Address);
+        btn_Contact = view.findViewById(R.id.btn_contact);
 
         btn_bookappoint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.fragment_container, new BookFragment());
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();
+                bookAppointment();
             }
         });
 
-        btn_contact.setOnClickListener(new View.OnClickListener() {
+        btn_Contact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.fragment_container, new ContactFragment());
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();
+                makeText();
+            }
+        });
+
+        btn_Address.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openMap();
             }
         });
     }
 
-
-    private void compareDates(){
-        Calendar now = Calendar.getInstance();
-
-        int hour = now.get(Calendar.HOUR);
-        int minute = now.get(Calendar.MINUTE);
-
-        date = parseDate(hour + ":" + minute);
-        dateCompareOne = parseDate(compareStringOne);
-        dateCompareTwo = parseDate(compareStringTwo);
-
-        if ( dateCompareOne.before( date ) && dateCompareTwo.after(date)) {
-          //  tv_ISOpen.setText("OPEN");
-        }
-        else{
-          //  tv_ISOpen.setText("CLOSED");
-         //   tv_ISOpen.setBackground(Drawable.createFromPath("@color/colorAccent"));
-        }
+    /**
+     * Open up bookFragment
+     */
+    private void bookAppointment() {
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_container, new BookFragment());
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
     }
 
-    private Date parseDate(String date) {
+    /**
+     * Open up phone to make a call
+     */
+    private void makeCall() {
+        Intent callIntent = new Intent(Intent.ACTION_DIAL);
+        callIntent.setData(Uri.parse("tel:13476546386"));
+        startActivity(callIntent);
+    }
 
-        try {
-            return inputParser.parse(date);
-        } catch (java.text.ParseException e) {
-            return new Date(0);
-        }
+    /**
+     * Open up text messaging
+     */
+    private void makeText() {
+        Uri sms_uri = Uri.parse("smsto:+13476546386");
+        Intent sms_intent = new Intent(Intent.ACTION_SENDTO, sms_uri);
+        startActivity(sms_intent);
+    }
+
+    /**
+     *
+     */
+    private void openMap(){
+        String URLmap = "https://www.google.com/maps/place/32-86+Steinway+St,+Astoria,+NY+11103/@40.7567727,-73.9212617,18z/data=!4m5!3m4!1s0x89c25f3b24799959:0xada63e6e78ea3666!8m2!3d40.7570534!4d-73.9208482";
+        Uri uri = Uri.parse(URLmap);
+        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+        startActivity(intent);
+    }
+
+    /**
+     * Open up Contact Page
+     */
+    private void openContact() {
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_container, new ContactFragment());
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
     }
 }

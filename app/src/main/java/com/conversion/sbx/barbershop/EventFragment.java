@@ -1,5 +1,6 @@
 package com.conversion.sbx.barbershop;
 
+import android.app.ProgressDialog;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
@@ -11,28 +12,70 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.bumptech.glide.Glide;
+
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import org.jsoup.select.Elements;
 
 public class EventFragment extends Fragment {
 
-    private TextView tvWebTest;
+    private TextView tvDescription, tvTitle, tvDate, tvPrice;
+    //private ImageView ivPoster;
+    //private Button btnLink;
+    private Button btnOpenEvents;
+
+    private String eventURL;
+    private Boolean hasButtonClicked = false;
+    private WebView wv_Event;
+    private ProgressDialog dialog;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_event, container, false);
+        dialog  = new ProgressDialog(v.getContext());
 
-        tvWebTest = v.findViewById(R.id.tv_webstest);
+        tvDescription = v.findViewById(R.id.tv_description);
+     /*   tvTitle = v.findViewById(R.id.tv_title);
+        tvDate = v.findViewById(R.id.tv_date);
+        tvPrice = v.findViewById(R.id.tv_price);
+        ivPoster = v.findViewById(R.id.iv_poster);
+        btnLink = v.findViewById(R.id.btn_link);
+        */
+        btnOpenEvents = v.findViewById(R.id.btn_openEvents);
+        wv_Event = v.findViewById(R.id.wb_Events);
 
+        //Load events from EventBrite into WebView
+        btnOpenEvents.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!hasButtonClicked) {
+                    wbEvents();
+                    hasButtonClicked = true;
+                    btnOpenEvents.setText(R.string.goBack);
+                }
+                else {
+                    wv_Event.goBack();
+                }
+            }
+        });
+
+        //Parse Date for Events
         //new fetchData().execute();
 
         //SOCIAL MEDIA SECTION/////////////////////////////////////////////////////////////////////
@@ -62,19 +105,63 @@ public class EventFragment extends Fragment {
 
         return v;
     }
+    private void wbEvents(){
+        //Setup WebView
+        wv_Event.setWebViewClient(new WebViewClient(){
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                super.onPageFinished(view, url);
+                if (dialog.isShowing())
+                    dialog.dismiss();
+            }
+        });
+        dialog.setMessage("Loading..Please wait.");
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.show();
+
+        wv_Event.setVerticalScrollBarEnabled(true);
+        wv_Event.setHorizontalScrollBarEnabled(true);
+        wv_Event.requestFocus();
+
+        //Settings
+        WebSettings webSettings = wv_Event.getSettings();
+        webSettings.setUserAgentString("BarberShop");
+        webSettings.setJavaScriptEnabled(true);
+
+        //Load Up web
+        wv_Event.loadUrl("https://www.eventbrite.com/o/lic-tonsorial-24930644401");
+    }
+
+    private void openEvent(){
+        Uri uri = Uri.parse(eventURL);
+        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+        try {
+            startActivity(intent);
+        } catch (Exception e) {
+            startActivity(new Intent(Intent.ACTION_VIEW,
+                    Uri.parse(eventURL)));
+        }
+    }
 
     private class fetchData extends AsyncTask<Void, Void, Void> {
-        String words;
+        String title, date, description, price, link, image;
 
         @Override
         protected Void doInBackground(Void... voids) {
             Log.v("WEB", "STARTED");
             try {
-                String url = "https://www.instagram.com/lic_tonsorial/";
+                String url = "https://www.eventbrite.com/o/lic-tonsorial-24930644401";
                 Connection conn = Jsoup.connect(url).userAgent("Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36");
                 Document doc = conn.get();
-                Elements element = doc.select("p.about_description");
-                words = element.text();
+                //Elements element = doc.select(".list-card__venue");
+                //Get Elements from Eventbrite
+                title = doc.select(".list-card__title").first().text();
+                date = doc.select(".list-card__date").text();
+                description = doc.select(".list-card__venue").text();
+                price = doc.select(".list-card__label").first().text();
+                link = doc.select(".list-card__main").attr("href");
+                image = doc.select("img.js-poster-image").attr("src");
+
                 Log.v("WEB", "words");
             } catch (Exception e) {
                 e.printStackTrace();
@@ -86,7 +173,15 @@ public class EventFragment extends Fragment {
         @Override
         protected void onPostExecute(Void avoid) {
             super.onPostExecute(avoid);
-            tvWebTest.setText(words);
+            tvTitle.setText(title);
+            tvDate.setText(date);
+            tvDescription.setText(description);
+            tvPrice.setText(price);
+
+            //btnLink.setVisibility(View.VISIBLE);
+            eventURL = link;
+
+            //Glide.with(getContext()).load(image).into(ivPoster);
         }
     }
 
