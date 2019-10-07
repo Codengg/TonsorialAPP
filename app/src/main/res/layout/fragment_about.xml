@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="5dp"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintHorizontal_bias="0.0"
@@ -15,33 +14,11 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
         android:orientation="vertical">
 
-
-        <TextView
-            android:id="@+id/tv_product"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="@font/playball"
-            android:text="@string/about_us"
-            android:textAlignment="center"
-            android:textSize="36sp"
-            android:textStyle="bold"
-
-            tools:layout_editor_absoluteX="138dp" />
-
-        <ImageView
-            android:id="@+id/iv_aboutpic"
-            android:layout_width="379dp"
-            android:layout_height="237dp"
-            android:layout_gravity="center"
-            android:layout_margin="10dp"
-            android:contentDescription="@string/aboutPic1TOPDescription"
-            app:srcCompat="@drawable/about"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="72dp" />
+        <include
+            android:id="@+id/aboutBanner"
+            layout="@layout/topbanner"></include>
 
         <TextView
             android:id="@+id/tv_description"

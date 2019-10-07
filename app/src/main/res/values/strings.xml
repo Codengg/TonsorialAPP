@@ -76,4 +76,17 @@
     <string name="Proeuct_layrite3Desc">Layrite Matte Cream product</string>
     <string name="Barbers_photo_of_barbers_description">Photo of Barbers</string>
     <string name="image_of_barberx">Image of Barber</string>
+    <string name="defaulttext">Banner picture of menu</string>
+    <string name="picture_of_barber">Picture of Barber</string>
+    <string name="profile_appointmenttime">Picture of working hours of Barber</string>
+    <string name="biography">Biography</string>
+    <string name="profile">Profile</string>
+
+    <string name="profileluisbio">Since he was 12, cutting hair was a hobby Luis enjoyed. Six years later, Luis’ found himself working alongside the most elite barbershops in the Tri-State area. His hobby quickly turned into his passion, giving him the opportunity to open up his own barbershop, in Queens. Luis envisions his barbershop becoming the finest barbershop in NYC by providing high-quality service and the best possible experience for his clients.</string>
+    <string name="profilegeraldobio">Born and raised in the islands of the Dominican Republic, Geraldo growing up would give haircuts to friends, families and even earned a Bachelor\'s Degree of arts. Geraldo enjoys going back to his roots in the Dominican Republic and visiting the many rivers and beaches on the island. To Geraldo, being a barber is an art form and with 23 years of experience his art speaks for itself.</string>
+    <string name="profilesamybio">Samy believes that when doing a job it should come from the heart, and with the grace of God. He was recently added to the Tonsorial LIC team and has been exceeded expectations and not a surprise with over 22 years of experience. Samy loves spending time with his family and also enjoys baseball.</string>
+    <string name="profilejustinbio">At the age of 18, Justin was fresh out of High School exploring his next step in life. In a search for a job he wound up at LIC Tonsorial working as a cashier for his uncle Luis. Justin helped clean and complete tasks around the shop. As time passed by Justin would observe and learn from his uncle and fellow barbers the art of cutting hair. Not long after Justin began cutting hair and beginning his own journey as a barber. During this spare time, Justin likes to take road trips with his friends and see the beauties of nature. Justin is a big fan of his own city, and supports many local community events.</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

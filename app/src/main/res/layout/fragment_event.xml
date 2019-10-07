@@ -27,13 +27,15 @@
             android:id="@+id/iv_Facebook"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             android:contentDescription="@string/facebook_icon_link"
             app:layout_constraintBottom_toBottomOf="@+id/iv_twitter"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/fb" />
+            app:srcCompat="@drawable/fbx" />
 
         <ImageView
             android:id="@+id/iv_twitter"
@@ -48,13 +50,15 @@
             app:layout_constraintStart_toEndOf="@+id/iv_Facebook"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="@drawable/twit" />
+            app:srcCompat="@drawable/twitter" />
 
         <ImageView
             android:id="@+id/iv_Instagram"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
             android:contentDescription="@string/instagram_icon_link"
             app:layout_constraintBottom_toBottomOf="parent"
