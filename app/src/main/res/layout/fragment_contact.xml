@@ -44,8 +44,7 @@
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
             android:contentDescription="@string/contactPic1Map"
-            android:scaleType="fitXY"
-            app:srcCompat="@drawable/googlemap" />
+            android:scaleType="fitXY" />
 
         <TextView
             android:id="@+id/textView"

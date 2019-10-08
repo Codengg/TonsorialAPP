@@ -25,6 +25,7 @@
         android:id="@+id/tv_pageBarberName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/playball"
         android:text="@string/luis"
         android:textColor="@color/common_google_signin_btn_text_dark_pressed"
         android:textSize="36sp"
@@ -67,8 +68,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_pageBiography"
-        app:layout_constraintVertical_bias="0.0"
-        tools:srcCompat="@drawable/bookingluis" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView4"

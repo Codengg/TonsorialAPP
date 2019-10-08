@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -15,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
@@ -41,6 +43,7 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
         TextView name, bio;
         ImageView picture, appTime;
         Button button;
@@ -88,5 +91,12 @@ public class ProfileFragment extends Fragment {
                 fragmentTransaction.commit();
             }
         });
+    }
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        Glide.get(getContext()).clearMemory();
+        getFragmentManager().beginTransaction().remove(ProfileFragment.this).commitAllowingStateLoss();
+        Toast.makeText(getContext(), "Deleted the page", Toast.LENGTH_SHORT).show();
     }
 }

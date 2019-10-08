@@ -76,7 +76,7 @@
             android:layout_marginTop="32dp"
             android:fontFamily="@font/playball"
             android:text="@string/shaves"
-            android:textColor="#000000"
+            android:textColor="@color/common_google_signin_btn_text_dark_focused"
             android:textSize="30sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editText18" />
@@ -222,7 +222,7 @@
             android:layout_marginTop="8dp"
             android:fontFamily="@font/playball"
             android:text="@string/cuts"
-            android:textColor="#000000"
+            android:textColor="@color/common_google_signin_btn_text_dark_focused"
             android:textSize="30sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/servicesBanner"

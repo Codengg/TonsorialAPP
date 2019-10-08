@@ -4,7 +4,6 @@
     <string name="barbers">Barbers</string>
     <string name="services">Services</string>
     <string name="product">Product</string>
-    <string name="contact">Contact</string>
     <string name="event">Event</string>
     <string name="navdrawopen">Open</string>
     <string name="navdrawclose">Close</string>
@@ -13,7 +12,7 @@
     <string name="geraldo">Geraldo</string>
     <string name="justin">Justin</string>
     <string name="samy">Samy</string>
-    <string name="shopaboutstory">I remember those old-fashioned barber shops, the ones where everyone was welcome. You could hear stories about people who made it to the top, never just a place to get your haircut, rather, filled with conversation and good memories. I spent most of my childhood in one. When life threw-out and the day would go wrong, the barber shop was a place that made me feel strong - a place where everyone shares an experience. It\'s places like this, I love the most.</string>
+    <string name="shopaboutstory">A barbershop is more than just getting a cut or a shave. In Tonsorial Barbershop its a spot where the community can get together have laughs and enjoy there time while getting a cut or shave. Tonsorial transforms a normal barbershop made to do one thing to become wholesome hang out where you can enjoy your time and connect with anyone. So we’ve came up with LIC Tonsorial to do just that but easier, we provide experiences and memories that are unforgettable. From high-end haircuts done by our dapper barbers, to our signature events thrown weekly. It’s a sight to see.</string>
     <string name="text">Text</string>
     <string name="call">Call</string>
     <string name="phonenumber">+1(347) 645 6386</string>
@@ -21,7 +20,6 @@
     <string name="Address">32–86 Steinway St, Long Island City NY, 11103</string>
     <string name="AdressTV">Address</string>
     <string name="contact_us">Contact Us</string>
-    <string name="cashonly">Cash only All sales are final</string>
     <string name="kidshaircut">Kids Haircut \n(12 and under)</string>
     <string name="buzz_cut">Buzz Cut</string>
     <string name="classic_cut">Classic Cut</string>
@@ -48,23 +46,16 @@
     <string name="wednesday">Wednesday</string>
     <string name="monday">Monday</string>
     <string name="hours">Hours</string>
-    <string name="aboutPic1TOPDescription">Picture of BarberShop Supplies on Table</string>
     <string name="contactPic1Map">Picture of Map Location of Tonsorial barber shop</string>
     <string name="twitter_icon_link">Twitter Icon Link</string>
     <string name="instagram_icon_link">Instagram Icon Link</string>
     <string name="facebook_icon_link">Facebook Icon Link</string>
     <string name="homePic1Background">Background Imgae of Tonsorial BarberShop</string>
     <string name="homePIC2Icon">Icon Image of Tonorial</string>
-    <string name="Product_products">Products</string>
     <string name="Products_matte_cream">Matte Cream</string>
     <string name="Events_open_events">Open Events</string>
     <string name="goBack">Back</string>
-    <string name="barber_luis">Barber Luis</string>
-    <string name="barber_geraldo">Barber Geraldo</string>
-    <string name="barber_justin">Barber Justin</string>
-    <string name="barber_samy">Barber Samy</string>
     <string name="Proudct_layrite">LAYRITE</string>
-    <string name="Product_mrnatty">MRNATTY</string>
     <string name="Proeuct_original">Original</string>
     <string name="Proeuct_super_hold">Super Hold</string>
     <string name="Proeuct_LayriteOGDescription">The water based pomade with a vanilla scent that started it all. Our original pomade holds and smells fresh all day, yet rinses out easily with water</string>
@@ -86,7 +77,8 @@
     <string name="profilegeraldobio">Born and raised in the islands of the Dominican Republic, Geraldo growing up would give haircuts to friends, families and even earned a Bachelor\'s Degree of arts. Geraldo enjoys going back to his roots in the Dominican Republic and visiting the many rivers and beaches on the island. To Geraldo, being a barber is an art form and with 23 years of experience his art speaks for itself.</string>
     <string name="profilesamybio">Samy believes that when doing a job it should come from the heart, and with the grace of God. He was recently added to the Tonsorial LIC team and has been exceeded expectations and not a surprise with over 22 years of experience. Samy loves spending time with his family and also enjoys baseball.</string>
     <string name="profilejustinbio">At the age of 18, Justin was fresh out of High School exploring his next step in life. In a search for a job he wound up at LIC Tonsorial working as a cashier for his uncle Luis. Justin helped clean and complete tasks around the shop. As time passed by Justin would observe and learn from his uncle and fellow barbers the art of cutting hair. Not long after Justin began cutting hair and beginning his own journey as a barber. During this spare time, Justin likes to take road trips with his friends and see the beauties of nature. Justin is a big fan of his own city, and supports many local community events.</string>
+    <string name="slideshowofbarbershop">SlideShowofBarbershop</string>
+    <string name="the_stache">The Stache</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

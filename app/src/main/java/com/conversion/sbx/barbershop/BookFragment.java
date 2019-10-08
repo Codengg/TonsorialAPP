@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,9 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.bumptech.glide.Glide;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -23,6 +27,7 @@ import java.util.Locale;
 public class BookFragment extends Fragment {
 
     private ProgressDialog dialog;
+    private WebView wv_book;
 
     @Nullable
     @Override
@@ -32,8 +37,8 @@ public class BookFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
         dialog = new ProgressDialog(view.getContext());
-        WebView wv_book;
         wv_book = view.findViewById(R.id.wv_book);
         //Setup WebView
         wv_book.setWebViewClient(new WebViewClient(){
@@ -57,6 +62,31 @@ public class BookFragment extends Fragment {
         wv_book.loadUrl("https://lictonsorial.resurva.com/book");
     }
 
+    @Override
+    public void onDetach() {
+        super.onDetach();
+
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+
+        wv_book.clearHistory();
+        wv_book.clearCache(true);
+        wv_book.loadUrl("about:blank");
+        wv_book.clearView();
+
+        wv_book.onPause();
+        wv_book.removeAllViews();
+        wv_book.destroyDrawingCache();
+
+        wv_book.destroy();
+        wv_book = null;
+
+        getFragmentManager().beginTransaction().remove(BookFragment.this).commitAllowingStateLoss();
+        Toast.makeText(getContext(), "Deleted the page", Toast.LENGTH_SHORT).show();
+    }
 }
 
 

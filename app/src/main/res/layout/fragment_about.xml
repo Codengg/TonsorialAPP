@@ -20,6 +20,13 @@
             android:id="@+id/aboutBanner"
             layout="@layout/topbanner"></include>
 
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/the_stache"
+            app:srcCompat="@drawable/stache" />
+
         <TextView
             android:id="@+id/tv_description"
             android:layout_width="match_parent"

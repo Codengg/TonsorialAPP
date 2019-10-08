@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
 import com.conversion.sbx.barbershop.R;
 
 import java.util.Timer;
@@ -19,7 +20,6 @@ public class ViewPageAdapter extends PagerAdapter {
     private LayoutInflater layoutInflater;
     private Integer [] images = {R.drawable.image1, R.drawable.image2, R.drawable.image3, R.drawable.image4, R.drawable.image5
                                 ,R.drawable.image6, R.drawable.image7, R.drawable.image8, R.drawable.image9};
-    Timer timer;
 
     public ViewPageAdapter(Context context){
         this.context = context;
@@ -41,8 +41,7 @@ public class ViewPageAdapter extends PagerAdapter {
         layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = layoutInflater.inflate(R.layout.imageinsert, null);
         ImageView imageView  = view.findViewById(R.id.imageViewslide);
-        imageView.setImageResource(images[position]);
-
+        Glide.with(context).load(images[position]).into(imageView);
         ViewPager vp = (ViewPager) container;
         vp.addView(view);
         return view;

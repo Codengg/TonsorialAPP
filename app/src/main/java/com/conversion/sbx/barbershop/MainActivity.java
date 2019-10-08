@@ -24,6 +24,7 @@ import android.os.Build;
 import android.os.Bundle;
 
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
 
 import android.util.Log;
 import android.view.MenuItem;
@@ -117,6 +118,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
+    private void removeAllFragmetns(){
+        for (Fragment fragment : getSupportFragmentManager().getFragments()) {
+            getSupportFragmentManager().beginTransaction().remove(fragment).commit();
+        }
+    }
 
     @Override
     public void onBackPressed() {

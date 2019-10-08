@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -14,6 +15,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.Toast;
+
+import com.bumptech.glide.Glide;
 
 public class HomeFragment extends Fragment {
 
@@ -28,9 +33,13 @@ public class HomeFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        ((AppCompatActivity) getActivity()).getSupportActionBar().show();
+        ImageView imageView = view.findViewById(R.id.barberbackground);
         btn_bookappoint = view.findViewById(R.id.btn_bookappoint);
         btn_Address = view.findViewById(R.id.btn_Address);
         btn_Contact = view.findViewById(R.id.btn_contact);
+
+        Glide.with(getContext()).load(R.drawable.barberbackgrounnd).into(imageView);
 
         btn_bookappoint.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,6 +61,14 @@ public class HomeFragment extends Fragment {
                 openMap();
             }
         });
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        Glide.get(getContext()).clearMemory();
+        getFragmentManager().beginTransaction().remove(HomeFragment.this).commitAllowingStateLoss();
+        Toast.makeText(getContext(), "Deleted the page", Toast.LENGTH_SHORT).show();
     }
 
     /**

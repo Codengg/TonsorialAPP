@@ -3,6 +3,7 @@ package com.conversion.sbx.barbershop;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 import android.view.LayoutInflater;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.conversion.sbx.barbershop.Extra.ViewPageAdapter;
@@ -28,6 +30,7 @@ public class AboutFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         viewPager = view.findViewById(R.id.viewPager);
+        ((AppCompatActivity) getActivity()).getSupportActionBar().show();
 
         View productBanner = view.findViewById(R.id.aboutBanner);
         TextView textView = productBanner.findViewById(R.id.tv_backgroundText);
@@ -38,5 +41,13 @@ public class AboutFragment extends Fragment {
 
         ViewPageAdapter viewPageAdapter = new ViewPageAdapter(getContext());
         viewPager.setAdapter(viewPageAdapter);
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        Glide.get(getContext()).clearMemory();
+        getFragmentManager().beginTransaction().remove(AboutFragment.this).commitAllowingStateLoss();
+        Toast.makeText(getContext(), "Deleted the page", Toast.LENGTH_SHORT).show();
     }
 }

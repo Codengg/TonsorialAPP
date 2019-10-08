@@ -3,12 +3,14 @@ package com.conversion.sbx.barbershop;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
@@ -21,6 +23,7 @@ public class ServicesFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        ((AppCompatActivity) getActivity()).getSupportActionBar().show();
         super.onViewCreated(view, savedInstanceState);
 
         View productBanner = view.findViewById(R.id.servicesBanner);
@@ -29,5 +32,13 @@ public class ServicesFragment extends Fragment {
 
         textView.setText(R.string.services);
         Glide.with(getContext()).load(R.drawable.servicespic).into(imageView);
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        Glide.get(getContext()).clearMemory();
+        getFragmentManager().beginTransaction().remove(ServicesFragment.this).commitAllowingStateLoss();
+        Toast.makeText(getContext(), "Deleted the page", Toast.LENGTH_SHORT).show();
     }
 }

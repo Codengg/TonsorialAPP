@@ -24,6 +24,7 @@ import android.widget.ToggleButton;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
@@ -33,13 +34,8 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
 public class EventFragment extends Fragment {
-
-    private TextView tvDescription, tvTitle, tvDate, tvPrice;
-    //private ImageView ivPoster;
-    //private Button btnLink;
     private Button btnOpenEvents;
 
-    private String eventURL;
     private Boolean hasButtonClicked = false;
     private WebView wv_Event;
     private ProgressDialog dialog;
@@ -48,15 +44,9 @@ public class EventFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_event, container, false);
+        ((AppCompatActivity) getActivity()).getSupportActionBar().show();
         dialog  = new ProgressDialog(v.getContext());
 
-        tvDescription = v.findViewById(R.id.tv_description);
-     /*   tvTitle = v.findViewById(R.id.tv_title);
-        tvDate = v.findViewById(R.id.tv_date);
-        tvPrice = v.findViewById(R.id.tv_price);
-        ivPoster = v.findViewById(R.id.iv_poster);
-        btnLink = v.findViewById(R.id.btn_link);
-        */
         btnOpenEvents = v.findViewById(R.id.btn_openEvents);
         wv_Event = v.findViewById(R.id.wb_Events);
 
@@ -74,9 +64,6 @@ public class EventFragment extends Fragment {
                 }
             }
         });
-
-        //Parse Date for Events
-        //new fetchData().execute();
 
         //SOCIAL MEDIA SECTION/////////////////////////////////////////////////////////////////////
         //FACEBOOK LINK
@@ -105,6 +92,25 @@ public class EventFragment extends Fragment {
 
         return v;
     }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        wv_Event.clearHistory();
+        wv_Event.clearCache(true);
+        wv_Event.loadUrl("about:blank");
+        wv_Event.clearView();
+
+        wv_Event.onPause();
+        wv_Event.removeAllViews();
+        wv_Event.destroyDrawingCache();
+
+        wv_Event.destroy();
+        wv_Event = null;
+        getFragmentManager().beginTransaction().remove(EventFragment.this).commitAllowingStateLoss();
+        Toast.makeText(getContext(), "Deleted the page", Toast.LENGTH_SHORT).show();
+    }
+
     private void wbEvents(){
         //Setup WebView
         wv_Event.setWebViewClient(new WebViewClient(){
@@ -130,59 +136,6 @@ public class EventFragment extends Fragment {
 
         //Load Up web
         wv_Event.loadUrl("https://www.eventbrite.com/o/lic-tonsorial-24930644401");
-    }
-
-    private void openEvent(){
-        Uri uri = Uri.parse(eventURL);
-        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-        try {
-            startActivity(intent);
-        } catch (Exception e) {
-            startActivity(new Intent(Intent.ACTION_VIEW,
-                    Uri.parse(eventURL)));
-        }
-    }
-
-    private class fetchData extends AsyncTask<Void, Void, Void> {
-        String title, date, description, price, link, image;
-
-        @Override
-        protected Void doInBackground(Void... voids) {
-            Log.v("WEB", "STARTED");
-            try {
-                String url = "https://www.eventbrite.com/o/lic-tonsorial-24930644401";
-                Connection conn = Jsoup.connect(url).userAgent("Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36");
-                Document doc = conn.get();
-                //Elements element = doc.select(".list-card__venue");
-                //Get Elements from Eventbrite
-                title = doc.select(".list-card__title").first().text();
-                date = doc.select(".list-card__date").text();
-                description = doc.select(".list-card__venue").text();
-                price = doc.select(".list-card__label").first().text();
-                link = doc.select(".list-card__main").attr("href");
-                image = doc.select("img.js-poster-image").attr("src");
-
-                Log.v("WEB", "words");
-            } catch (Exception e) {
-                e.printStackTrace();
-                Log.v("WEB", "FAIL");
-            }
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Void avoid) {
-            super.onPostExecute(avoid);
-            tvTitle.setText(title);
-            tvDate.setText(date);
-            tvDescription.setText(description);
-            tvPrice.setText(price);
-
-            //btnLink.setVisibility(View.VISIBLE);
-            eventURL = link;
-
-            //Glide.with(getContext()).load(image).into(ivPoster);
-        }
     }
 
     //SOCIAL MEDIA CALL METHODS/////////////////////////////////////////////////////////////
