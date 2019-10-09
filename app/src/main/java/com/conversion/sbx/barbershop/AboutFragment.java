@@ -48,6 +48,5 @@ public class AboutFragment extends Fragment {
         super.onDetach();
         Glide.get(getContext()).clearMemory();
         getFragmentManager().beginTransaction().remove(AboutFragment.this).commitAllowingStateLoss();
-        Toast.makeText(getContext(), "Deleted the page", Toast.LENGTH_SHORT).show();
     }
 }

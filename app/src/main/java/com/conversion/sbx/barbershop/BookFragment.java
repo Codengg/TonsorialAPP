@@ -1,7 +1,6 @@
 package com.conversion.sbx.barbershop;
 
 import android.app.ProgressDialog;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -14,15 +13,7 @@ import android.view.ViewGroup;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.TextView;
 import android.widget.Toast;
-
-import com.bumptech.glide.Glide;
-
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
 
 public class BookFragment extends Fragment {
 
@@ -65,13 +56,6 @@ public class BookFragment extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
-
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-
         wv_book.clearHistory();
         wv_book.clearCache(true);
         wv_book.loadUrl("about:blank");
@@ -83,9 +67,7 @@ public class BookFragment extends Fragment {
 
         wv_book.destroy();
         wv_book = null;
-
         getFragmentManager().beginTransaction().remove(BookFragment.this).commitAllowingStateLoss();
-        Toast.makeText(getContext(), "Deleted the page", Toast.LENGTH_SHORT).show();
     }
 }
 

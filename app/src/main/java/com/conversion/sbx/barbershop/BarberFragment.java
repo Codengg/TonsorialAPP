@@ -1,14 +1,10 @@
 package com.conversion.sbx.barbershop;
 
-import android.app.Activity;
-import android.app.Application;
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -20,19 +16,14 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class BarberFragment extends Fragment {
     private final static Integer[] listNames = {R.string.luis, R.string.geraldo, R.string.justin, R.string.samy};
     private final static Integer[] listPhoto = {R.drawable.picluis, R.drawable.picgeraldo, R.drawable.picjustin, R.drawable.samy};
-    private  Button[] listButton = new Button[4];
+    private Button[] listButton = new Button[4];
+
     //private List<Integer> listDescription = Arrays.asList();
     @Nullable
     @Override
@@ -43,12 +34,12 @@ public class BarberFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         ((AppCompatActivity) getActivity()).getSupportActionBar().show();
-        LinearLayout  llBarbers = view.findViewById(R.id.LL_Barbers);
+        LinearLayout llBarbers = view.findViewById(R.id.LL_Barbers);
         View vBar = null;
         TextView name;
         ImageView image;
         //Run through the list of items
-        for(int i = 0; i < llBarbers.getChildCount(); i++){
+        for (int i = 0; i < llBarbers.getChildCount(); i++) {
             vBar = llBarbers.getChildAt(i);
             name = vBar.findViewById(R.id.tv_BarberName);
             image = vBar.findViewById(R.id.iv_BarberImage);
@@ -124,6 +115,5 @@ public class BarberFragment extends Fragment {
         super.onDetach();
         Glide.get(getContext()).clearMemory();
         getFragmentManager().beginTransaction().remove(BarberFragment.this).commitAllowingStateLoss();
-        Toast.makeText(getContext(), "Deleted the page", Toast.LENGTH_SHORT).show();
     }
 }

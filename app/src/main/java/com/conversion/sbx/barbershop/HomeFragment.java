@@ -16,14 +16,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
 public class HomeFragment extends Fragment {
-
-    private Button btn_bookappoint;
-    private Button btn_contact, btn_Address, btn_Contact;
+    private Button  btn_Address, btn_Contact, btn_bookappoint;
 
     @Nullable
     @Override
@@ -68,7 +65,6 @@ public class HomeFragment extends Fragment {
         super.onDetach();
         Glide.get(getContext()).clearMemory();
         getFragmentManager().beginTransaction().remove(HomeFragment.this).commitAllowingStateLoss();
-        Toast.makeText(getContext(), "Deleted the page", Toast.LENGTH_SHORT).show();
     }
 
     /**
@@ -108,16 +104,5 @@ public class HomeFragment extends Fragment {
         Uri uri = Uri.parse(URLmap);
         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
         startActivity(intent);
-    }
-
-    /**
-     * Open up Contact Page
-     */
-    private void openContact() {
-        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.fragment_container, new ContactFragment());
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
     }
 }

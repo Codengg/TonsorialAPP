@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
@@ -38,6 +37,5 @@ public class ProductFragment extends Fragment {
         super.onDetach();
         Glide.get(getContext()).clearMemory();
         getFragmentManager().beginTransaction().remove(ProductFragment.this).commitAllowingStateLoss();
-        Toast.makeText(getContext(), "Deleted the page", Toast.LENGTH_SHORT).show();
     }
 }

@@ -45,39 +45,65 @@ public class ProfileFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
         TextView name, bio;
+        TextView sunday, monday, tuesday, wednesday, thrusday, friday, saturday;
         ImageView picture, appTime;
         Button button;
 
         name = view.findViewById(R.id.tv_pageBarberName);
         bio = view.findViewById(R.id.tv_pageBiography);
         picture = view.findViewById(R.id.iv_pageBarberBackground);
-        appTime = view.findViewById(R.id.iv_profileAppTime);
         button = view.findViewById(R.id.btn_profileAppoint);
 
         switch (Barber){
             case "luis":
                 name.setText(R.string.luis);
                 bio.setText(R.string.profileluisbio);
+                sunday = view.findViewById(R.id.tv_profileSunday);
+                tuesday = view.findViewById(R.id.tv_profileTuesday);
+                wednesday = view.findViewById(R.id.tv_profileWednesday);
+                thrusday = view.findViewById(R.id.tv_profileThrusday);
+                friday = view.findViewById(R.id.tv_profileFriday);
+                saturday = view.findViewById(R.id.tv_profileSaturday);
+
+                sunday.setText(R.string.eleventoseven);
+                tuesday.setText(R.string.notavailable);
+                wednesday.setText(R.string.notavailable);
+                thrusday.setText(R.string.eleventoeight);
+                friday.setText(R.string.eleventoeight);
+                saturday.setText(R.string.tentoeight);
+
                 Glide.with(getContext()).load(R.drawable.picluis).into(picture);
-                Glide.with(getContext()).load(R.drawable.bookingluis).into(appTime);
                 break;
             case "geraldo":
                 name.setText(R.string.geraldo);
                 bio.setText(R.string.profilegeraldobio);
                 Glide.with(getContext()).load(R.drawable.picgeraldo).into(picture);
-                Glide.with(getContext()).load(R.drawable.bookinggeraldo).into(appTime);
                 break;
             case "samy":
                 name.setText(R.string.samy);
                 bio.setText(R.string.profilesamybio);
                 Glide.with(getContext()).load(R.drawable.samy).into(picture);
-                Glide.with(getContext()).load(R.drawable.bookingsamy).into(appTime);
                 break;
             case "justin":
                 name.setText(R.string.justin);
                 bio.setText(R.string.profilejustinbio);
+                sunday = view.findViewById(R.id.tv_profileSunday);
+                monday = view.findViewById(R.id.tv_profileMonday);
+                tuesday = view.findViewById(R.id.tv_profileTuesday);
+                wednesday = view.findViewById(R.id.tv_profileWednesday);
+                thrusday = view.findViewById(R.id.tv_profileThrusday);
+                friday = view.findViewById(R.id.tv_profileFriday);
+                saturday = view.findViewById(R.id.tv_profileSaturday);
+
+                sunday.setText(R.string.eleventoseven);
+                monday.setText(R.string.notavailable);
+                tuesday.setText(R.string.eleventoeight);
+                wednesday.setText(R.string.notavailable);
+                thrusday.setText(R.string.eleventoeight);
+                friday.setText(R.string.eleventoeight);
+                saturday.setText(R.string.tentoeight);
+
                 Glide.with(getContext()).load(R.drawable.picjustin).into(picture);
-                Glide.with(getContext()).load(R.drawable.bookingjustin).into(appTime);
                 break;
         }
 
@@ -97,6 +123,5 @@ public class ProfileFragment extends Fragment {
         super.onDetach();
         Glide.get(getContext()).clearMemory();
         getFragmentManager().beginTransaction().remove(ProfileFragment.this).commitAllowingStateLoss();
-        Toast.makeText(getContext(), "Deleted the page", Toast.LENGTH_SHORT).show();
     }
 }

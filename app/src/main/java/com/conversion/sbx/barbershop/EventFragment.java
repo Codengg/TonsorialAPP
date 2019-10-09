@@ -108,7 +108,6 @@ public class EventFragment extends Fragment {
         wv_Event.destroy();
         wv_Event = null;
         getFragmentManager().beginTransaction().remove(EventFragment.this).commitAllowingStateLoss();
-        Toast.makeText(getContext(), "Deleted the page", Toast.LENGTH_SHORT).show();
     }
 
     private void wbEvents(){

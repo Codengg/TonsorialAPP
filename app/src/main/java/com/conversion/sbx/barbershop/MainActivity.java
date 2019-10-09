@@ -6,20 +6,14 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.messaging.FirebaseMessaging;
-import com.google.firebase.messaging.FirebaseMessagingService;
-import com.google.firebase.messaging.RemoteMessage;
 
-import androidx.core.app.NotificationCompat;
-import androidx.core.app.NotificationManagerCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
-import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Bundle;
 
@@ -28,21 +22,16 @@ import androidx.fragment.app.Fragment;
 
 import android.util.Log;
 import android.view.MenuItem;
-import android.widget.Toast;
-
-import java.util.Map;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout drawer;
     public final static String NOTIFICATIONEVENT = "FIREBASE_OPEN_EVENT";
-    String openEvent = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -75,23 +64,37 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         }
         */
-
         setNotifications();
     }
 
+    //Hanlde disbabling the drawer when not needed
+    public interface DrawerLocker {
+         void setDrawerEnabled(boolean enabled);
+    }
+
+    public void setDrawerEnabled(boolean enabled) {
+        int lockMode = enabled ? DrawerLayout.LOCK_MODE_UNLOCKED :
+                DrawerLayout.LOCK_MODE_LOCKED_CLOSED;
+        drawer.setDrawerLockMode(lockMode);
+    }
+
+    //Handles actions that happen when drawer in use
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         switch (menuItem.getItemId()) {
             case R.id.home:
+                getSupportFragmentManager().popBackStack(null, getSupportFragmentManager().POP_BACK_STACK_INCLUSIVE);
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new HomeFragment()).commit();
                 break;
 
             case R.id.about:
+                getSupportFragmentManager().popBackStack(null, getSupportFragmentManager().POP_BACK_STACK_INCLUSIVE);
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new AboutFragment()).commit();
                 break;
             case R.id.barbers:
+                getSupportFragmentManager().popBackStack(null, getSupportFragmentManager().POP_BACK_STACK_INCLUSIVE);
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new BarberFragment()).commit();
                 break;
@@ -101,14 +104,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
              */
             case R.id.product:
+                getSupportFragmentManager().popBackStack(null, getSupportFragmentManager().POP_BACK_STACK_INCLUSIVE);
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new ProductFragment()).commit();
                 break;
             case R.id.services:
+                getSupportFragmentManager().popBackStack(null, getSupportFragmentManager().POP_BACK_STACK_INCLUSIVE);
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new ServicesFragment()).commit();
                 break;
             case R.id.event:
+                getSupportFragmentManager().popBackStack(null, getSupportFragmentManager().POP_BACK_STACK_INCLUSIVE);
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new EventFragment()).commit();
                 break;
@@ -148,7 +154,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         if (!task.isSuccessful()) {
                             msg = "Failed";
                         } else {
-                            Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
+                            Log.v("NOTIFICATIONx", msg);
                         }
                     }
                 });
