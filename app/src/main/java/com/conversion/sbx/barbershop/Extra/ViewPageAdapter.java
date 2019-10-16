@@ -13,7 +13,6 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.conversion.sbx.barbershop.R;
 
-import java.util.Timer;
 
 public class ViewPageAdapter extends PagerAdapter {
     private Context context;

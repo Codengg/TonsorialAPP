@@ -33,8 +33,8 @@ public class HomeFragment extends Fragment {
         ((AppCompatActivity) getActivity()).getSupportActionBar().show();
         ImageView imageView = view.findViewById(R.id.barberbackground);
         btn_bookappoint = view.findViewById(R.id.btn_bookappoint);
-        btn_Address = view.findViewById(R.id.btn_Address);
-        btn_Contact = view.findViewById(R.id.btn_contact);
+        btn_Address = view.findViewById(R.id.btn_AdressX);
+        btn_Contact = view.findViewById(R.id.btn_Contactx);
 
         Glide.with(getContext()).load(R.drawable.barberbackgrounnd).into(imageView);
 
