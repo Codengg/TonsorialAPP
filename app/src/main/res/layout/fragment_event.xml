@@ -73,7 +73,8 @@
         android:layout_height="wrap_content"
         android:layout_weight="0"
         android:fontFamily="@font/corben"
-        android:text="@string/Events_open_events" />
+        android:text="@string/Events_open_events"
+        android:textStyle="bold" />
 
     <WebView
         android:id="@+id/wb_Events"

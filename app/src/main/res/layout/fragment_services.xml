@@ -18,7 +18,7 @@
             layout="@layout/topbanner"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"></include>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/editText26"
@@ -27,9 +27,9 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
+            style="@style/Services_Font_Carbon"
             android:gravity="end"
             android:text="@string/_60"
-            android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editText23" />
 
@@ -45,7 +45,7 @@
             android:layout_marginBottom="16dp"
             android:layout_weight="1"
             android:text="@string/cut_amp_shave_or_beard_cut"
-            android:textSize="24sp"
+            style="@style/Services_Font_Carbon"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/editText26"
             app:layout_constraintHorizontal_bias="0.0"
@@ -63,7 +63,7 @@
             android:layout_marginRight="16dp"
             android:layout_weight="1"
             android:text="@string/traditional_shave"
-            android:textSize="24sp"
+            style="@style/Services_Font_Carbon"
             app:layout_constraintEnd_toStartOf="@+id/editText24"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -91,7 +91,7 @@
             android:layout_marginRight="16dp"
             android:gravity="end"
             android:text="@string/_20"
-            android:textSize="24sp"
+            style="@style/Services_Font_Carbon"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editText17" />
 
@@ -104,7 +104,7 @@
             android:layout_marginRight="16dp"
             android:gravity="end"
             android:text="@string/_25_n"
-            android:textSize="24sp"
+            style="@style/Services_Font_Carbon"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editText20" />
 
@@ -117,7 +117,7 @@
             android:layout_marginRight="16dp"
             android:gravity="end"
             android:text="@string/_25"
-            android:textSize="24sp"
+            style="@style/Services_Font_Carbon"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editText19" />
 
@@ -130,7 +130,7 @@
             android:layout_marginRight="16dp"
             android:gravity="end"
             android:text="@string/_40"
-            android:textSize="24sp"
+            style="@style/Services_Font_Carbon"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
@@ -144,7 +144,7 @@
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             android:text="@string/senior_haircut"
-            android:textSize="24sp"
+            style="@style/Services_Font_Carbon"
             app:layout_constraintEnd_toStartOf="@+id/editText22"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -161,7 +161,7 @@
             android:layout_marginRight="16dp"
             android:maxLines="2"
             android:text="@string/kidshaircut"
-            android:textSize="24sp"
+            style="@style/Services_Font_Carbon"
             app:layout_constraintEnd_toStartOf="@+id/editText21"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -177,7 +177,7 @@
             android:layout_weight="1"
             android:gravity="end"
             android:text="@string/_30"
-            android:textSize="24sp"
+            style="@style/Services_Font_Carbon"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
@@ -191,7 +191,7 @@
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             android:text="@string/buzz_cut"
-            android:textSize="24sp"
+            style="@style/Services_Font_Carbon"
             app:layout_constraintEnd_toStartOf="@+id/editText20"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -207,7 +207,7 @@
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             android:text="@string/classic_cut"
-            android:textSize="24sp"
+            style="@style/Services_Font_Carbon"
             app:layout_constraintEnd_toStartOf="@+id/editText19"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"

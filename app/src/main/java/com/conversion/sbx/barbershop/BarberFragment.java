@@ -1,23 +1,6 @@
 package com.conversion.sbx.barbershop;
 
-import android.os.Build;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.transition.ChangeBounds;
-import androidx.transition.ChangeImageTransform;
-import androidx.transition.Explode;
-import androidx.transition.Fade;
-import androidx.transition.Slide;
-import androidx.transition.Transition;
-import androidx.transition.TransitionManager;
-import androidx.transition.TransitionSet;
-
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,6 +9,18 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.transition.ChangeBounds;
+import androidx.transition.Fade;
+import androidx.transition.Slide;
+import androidx.transition.TransitionManager;
+import androidx.transition.TransitionSet;
 
 import com.bumptech.glide.Glide;
 
@@ -108,7 +103,7 @@ public class BarberFragment extends Fragment {
         TransitionSet set = new TransitionSet()
                 .addTransition(new ChangeBounds())
                 .addTransition(new Fade())
-                .setDuration(500);
+                .setDuration(400);
         TransitionManager.beginDelayedTransition(viewGroup, set);
     }
 

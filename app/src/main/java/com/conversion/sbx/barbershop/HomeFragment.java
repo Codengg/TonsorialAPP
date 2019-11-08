@@ -69,7 +69,7 @@ public class HomeFragment extends Fragment {
         TransitionSet set = new TransitionSet()
                 .addTransition(new Slide(Gravity.BOTTOM))
                 .addTransition(new Fade())
-                .setDuration(750);
+                .setDuration(400);
         TransitionManager.beginDelayedTransition(viewGroup, set);
         viewGroup.setVisibility(View.VISIBLE);
     }

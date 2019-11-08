@@ -34,13 +34,12 @@
                 android:layout_height="100dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
-                android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"
                 android:adjustViewBounds="true"
                 android:contentDescription="@string/Proeuct_lay1Desc"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tvdescription"
                 app:srcCompat="@drawable/layriteog" />
 
             <TextView
@@ -49,6 +48,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/playball"
                 android:text="@string/Proeuct_original"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/tvPrice"
@@ -69,7 +69,7 @@
                 android:layout_marginBottom="8dp"
                 android:fontFamily="@font/corben"
                 android:text="@string/Proeuct_LayriteOGDescription"
-                android:textSize="12sp"
+                android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -81,14 +81,14 @@
                 android:id="@+id/tvPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginBottom="8dp"
                 android:text="@string/_18"
+                android:textSize="18sp"
                 app:layout_constraintBottom_toTopOf="@+id/tvdescription"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tvcreamTitle"
                 app:layout_constraintVertical_bias="0.0" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -103,13 +103,12 @@
                 android:layout_height="100dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
-                android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"
                 android:adjustViewBounds="true"
                 android:contentDescription="@string/Proeuct_layrite2Desc"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tvdescription2"
                 app:srcCompat="@drawable/layritesuperhold" />
 
             <TextView
@@ -118,6 +117,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/playball"
                 android:text="@string/Proeuct_super_hold"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/tvPrice2"
@@ -138,7 +138,7 @@
                 android:layout_marginBottom="8dp"
                 android:fontFamily="@font/corben"
                 android:text="@string/Proeuct_SuperHoldeDesc"
-                android:textSize="12sp"
+                android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -150,14 +150,14 @@
                 android:id="@+id/tvPrice2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginBottom="8dp"
                 android:text="@string/_18"
+                android:textSize="18sp"
                 app:layout_constraintBottom_toTopOf="@+id/tvdescription2"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tvcreamTitle2"
                 app:layout_constraintVertical_bias="0.0" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -172,13 +172,12 @@
                 android:layout_height="100dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
-                android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"
                 android:adjustViewBounds="true"
                 android:contentDescription="@string/Proeuct_layrite3Desc"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tvdescription3"
                 app:srcCompat="@drawable/layritemattecream" />
 
             <TextView
@@ -187,6 +186,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/playball"
                 android:text="@string/Products_matte_cream"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/tvPrice3"
@@ -207,7 +207,7 @@
                 android:layout_marginBottom="8dp"
                 android:fontFamily="@font/corben"
                 android:text="@string/Proeuct_matteCreamDesc"
-                android:textSize="12sp"
+                android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -219,14 +219,14 @@
                 android:id="@+id/tvPrice3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginBottom="8dp"
                 android:text="@string/_18"
+                android:textSize="18sp"
                 app:layout_constraintBottom_toTopOf="@+id/tvdescription3"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tvcreamTitle3"
                 app:layout_constraintVertical_bias="0.0" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
