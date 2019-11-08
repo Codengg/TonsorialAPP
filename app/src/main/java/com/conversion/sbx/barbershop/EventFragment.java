@@ -6,9 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,52 +14,40 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
-import android.widget.CompoundButton;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
-import android.widget.ToggleButton;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-
-import com.bumptech.glide.Glide;
-
-import org.jsoup.Connection;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
+import androidx.transition.ChangeBounds;
+import androidx.transition.Fade;
+import androidx.transition.TransitionManager;
+import androidx.transition.TransitionSet;
 
 public class EventFragment extends Fragment {
     private Button btnOpenEvents;
-
-    private Boolean hasButtonClicked = false;
     private WebView wv_Event;
     private ProgressDialog dialog;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        transitionAction(container);
         View v = inflater.inflate(R.layout.fragment_event, container, false);
         ((AppCompatActivity) getActivity()).getSupportActionBar().show();
-        dialog  = new ProgressDialog(v.getContext());
+        dialog = new ProgressDialog(v.getContext());
 
         btnOpenEvents = v.findViewById(R.id.btn_openEvents);
         wv_Event = v.findViewById(R.id.wb_Events);
+
+        wbEvents();
+        btnOpenEvents.setText(R.string.goBack);
 
         //Load events from EventBrite into WebView
         btnOpenEvents.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!hasButtonClicked) {
-                    wbEvents();
-                    hasButtonClicked = true;
-                    btnOpenEvents.setText(R.string.goBack);
-                }
-                else {
-                    wv_Event.goBack();
-                }
+                wv_Event.goBack();
             }
         });
 
@@ -93,6 +79,16 @@ public class EventFragment extends Fragment {
         return v;
     }
 
+    private void transitionAction(ViewGroup viewGroup) {
+        viewGroup.setVisibility(View.INVISIBLE);
+        TransitionSet set = new TransitionSet()
+                .addTransition(new ChangeBounds())
+                .addTransition(new Fade())
+                .setDuration(750);
+        TransitionManager.beginDelayedTransition(viewGroup, set);
+        viewGroup.setVisibility(View.VISIBLE);
+    }
+
     @Override
     public void onDetach() {
         super.onDetach();
@@ -110,9 +106,9 @@ public class EventFragment extends Fragment {
         getFragmentManager().beginTransaction().remove(EventFragment.this).commitAllowingStateLoss();
     }
 
-    private void wbEvents(){
+    private void wbEvents() {
         //Setup WebView
-        wv_Event.setWebViewClient(new WebViewClient(){
+        wv_Event.setWebViewClient(new WebViewClient() {
             @Override
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);

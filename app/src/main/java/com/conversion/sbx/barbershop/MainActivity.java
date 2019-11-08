@@ -1,27 +1,24 @@
 package com.conversion.sbx.barbershop;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.os.Build;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.MenuItem;
+
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.messaging.FirebaseMessaging;
-
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
-import android.os.Build;
-import android.os.Bundle;
-
-import androidx.appcompat.widget.Toolbar;
-import androidx.fragment.app.Fragment;
-
-import android.util.Log;
-import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -45,7 +42,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-
         if (savedInstanceState == null) {
             Log.v("NOTIFICATIONx", "STARTED");
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
@@ -65,17 +61,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         */
         setNotifications();
-    }
-
-    //Hanlde disbabling the drawer when not needed
-    public interface DrawerLocker {
-         void setDrawerEnabled(boolean enabled);
-    }
-
-    public void setDrawerEnabled(boolean enabled) {
-        int lockMode = enabled ? DrawerLayout.LOCK_MODE_UNLOCKED :
-                DrawerLayout.LOCK_MODE_LOCKED_CLOSED;
-        drawer.setDrawerLockMode(lockMode);
     }
 
     //Handles actions that happen when drawer in use

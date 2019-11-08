@@ -3,6 +3,12 @@ package com.conversion.sbx.barbershop;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -10,34 +16,33 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.transition.Fade;
+import androidx.transition.Slide;
+import androidx.transition.TransitionManager;
+import androidx.transition.TransitionSet;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
-
+import com.airbnb.lottie.LottieAnimationView;
 import com.bumptech.glide.Glide;
 
 public class HomeFragment extends Fragment {
-    private Button  btn_Address, btn_Contact, btn_bookappoint;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        transitionAction(container);
         return inflater.inflate(R.layout.fragment_home, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        Button  btn_bookappoint;
         ((AppCompatActivity) getActivity()).getSupportActionBar().show();
         ImageView imageView = view.findViewById(R.id.barberbackground);
+        LottieAnimationView avLocation = view.findViewById(R.id.av_Location);
+        LottieAnimationView avPhone = view.findViewById(R.id.av_Phone);
         btn_bookappoint = view.findViewById(R.id.btn_bookappoint);
-        btn_Address = view.findViewById(R.id.btn_AdressX);
-        btn_Contact = view.findViewById(R.id.btn_Contactx);
 
         Glide.with(getContext()).load(R.drawable.barberbackgrounnd).into(imageView);
-
         btn_bookappoint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -45,20 +50,30 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        btn_Contact.setOnClickListener(new View.OnClickListener() {
+        avLocation.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                makeText();
-            }
-        });
-
-        btn_Address.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 openMap();
             }
         });
+        avPhone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                makeText();
+            }
+        });
     }
+
+    private void transitionAction(ViewGroup viewGroup){
+        viewGroup.setVisibility(View.INVISIBLE);
+        TransitionSet set = new TransitionSet()
+                .addTransition(new Slide(Gravity.BOTTOM))
+                .addTransition(new Fade())
+                .setDuration(750);
+        TransitionManager.beginDelayedTransition(viewGroup, set);
+        viewGroup.setVisibility(View.VISIBLE);
+    }
+
 
     @Override
     public void onDetach() {

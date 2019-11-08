@@ -35,16 +35,18 @@
 
         <TextView
             android:id="@+id/editText25"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
+            android:layout_marginBottom="16dp"
             android:layout_weight="1"
             android:text="@string/cut_amp_shave_or_beard_cut"
             android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/editText26"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -52,7 +54,7 @@
 
         <TextView
             android:id="@+id/editText23"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
@@ -134,7 +136,7 @@
 
         <TextView
             android:id="@+id/editText18"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
@@ -182,7 +184,7 @@
         <TextView
             android:id="@+id/editText16"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="8dp"
@@ -197,7 +199,7 @@
 
         <TextView
             android:id="@+id/editText"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"

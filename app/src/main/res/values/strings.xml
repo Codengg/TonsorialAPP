@@ -13,8 +13,6 @@
     <string name="justin">Justin</string>
     <string name="samy">Samy</string>
     <string name="shopaboutstory">A barbershop is more than just getting a cut or a shave. In Tonsorial Barbershop, its a spot where the community can get together have laughs and enjoy there time while getting a cut or shave. Tonsorial transforms a traditional barbershop made to do one thing to become wholesome, hang out where you can enjoy your time, and connect with anyone. So we’ve came up with LIC Tonsorial to do just that but easier, we provide experiences and memories that are unforgettable. From high-end haircuts done by our dapper barbers, to our signature events thrown weekly. It’s a sight to see. </string>
-    <string name="phonenumber">+1(347) 645 6386</string>
-    <string name="Address">32–86 Steinway St, Long Island City NY, 11103</string>
     <string name="kidshaircut">Kids Haircut \n(12 and under)</string>
     <string name="buzz_cut">Buzz Cut</string>
     <string name="classic_cut">Classic Cut</string>
@@ -63,7 +61,6 @@
     <string name="image_of_barberx">Image of Barber</string>
     <string name="defaulttext">Banner picture of menu</string>
     <string name="picture_of_barber">Picture of Barber</string>
-    <string name="profile_appointmenttime">Picture of working hours of Barber</string>
     <string name="biography">Biography</string>
     <string name="profile">Profile</string>
 
@@ -79,6 +76,8 @@
     <string name="tentoeight">10:00am - 8:00pm</string>
     <string name="eleventoseven">11:00am - 7:00pm</string>
     <string name="eleventoeight">11:00am - 8:00pm</string>
+    <string name="slide_left">Slide left</string>
+    <string name="slide_right">Slide Right</string>
 
     <!-- TODO: Remove or change this placeholder text -->
 </resources>
