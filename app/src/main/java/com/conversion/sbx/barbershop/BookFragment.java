@@ -1,19 +1,19 @@
 package com.conversion.sbx.barbershop;
 
 import android.app.ProgressDialog;
+import android.os.Build;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 public class BookFragment extends Fragment {
 
@@ -40,6 +40,9 @@ public class BookFragment extends Fragment {
                     dialog.dismiss();
             }
         });
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            WebView.setWebContentsDebuggingEnabled(false);
+        }
         dialog.setMessage("Loading..Please wait.");
         dialog.setCanceledOnTouchOutside(false);
         dialog.show();

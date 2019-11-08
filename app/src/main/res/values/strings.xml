@@ -8,10 +8,13 @@
     <string name="navdrawopen">Open</string>
     <string name="navdrawclose">Close</string>
     <string name="book_appointment">BOOK APPOINTMENT</string>
+    <!--Barbers -->
     <string name="luis">Luis</string>
     <string name="geraldo">Geraldo</string>
     <string name="justin">Justin</string>
     <string name="samy">Samy</string>
+    <string name="lavar">Lavar</string>
+    
     <string name="shopaboutstory">A barbershop is more than just getting a cut or a shave. In Tonsorial Barbershop, its a spot where the community can get together have laughs and enjoy there time while getting a cut or shave. Tonsorial transforms a traditional barbershop made to do one thing to become wholesome, hang out where you can enjoy your time, and connect with anyone. So we’ve came up with LIC Tonsorial to do just that but easier, we provide experiences and memories that are unforgettable. From high-end haircuts done by our dapper barbers, to our signature events thrown weekly. It’s a sight to see. </string>
     <string name="kidshaircut">Kids Haircut \n(12 and under)</string>
     <string name="buzz_cut">Buzz Cut</string>
@@ -63,7 +66,7 @@
     <string name="picture_of_barber">Picture of Barber</string>
     <string name="biography">Biography</string>
     <string name="profile">Profile</string>
-
+    <!--Barber Bios-->
     <string name="profileluisbio">Since he was 12, cutting hair was a hobby Luis enjoyed. Six years later, Luis’ found himself working alongside the most elite barbershops in the Tri-State area. His hobby quickly turned into his passion, giving him the opportunity to open up his own barbershop, in Queens. Luis envisions his barbershop becoming the finest barbershop in NYC by providing high-quality service and the best possible experience for his clients.</string>
     <string name="profilegeraldobio">Born and raised in the islands of the Dominican Republic. Geraldo growing up would give haircuts to friends, families and even earned a Bachelor\'s Degree of arts. Geraldo enjoys going back to his roots in the Dominican Republic and visiting the many rivers and beaches on the island. To Geraldo, being a barber is an art form and with 23 years of experience his art speaks for itself.</string>
     <string name="profilesamybio">Samy believes that when doing a job it should come from the heart, and with the grace of God. He was recently added to the Tonsorial LIC team and has been exceeding expectations and not a surprise with over 22 years of experience. Samy loves spending time with his family and also enjoys baseball.</string>

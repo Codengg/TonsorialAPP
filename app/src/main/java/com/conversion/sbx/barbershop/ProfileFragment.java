@@ -48,7 +48,7 @@ public class ProfileFragment extends Fragment {
         button = view.findViewById(R.id.btn_profileAppoint);
 
         switch (Barber){
-            case "luis":
+            case "Luis":
                 name.setText(R.string.luis);
                 bio.setText(R.string.profileluisbio);
                 sunday = view.findViewById(R.id.tv_profileSunday);
@@ -67,17 +67,17 @@ public class ProfileFragment extends Fragment {
 
                 Glide.with(getContext()).load(R.drawable.picluis).into(picture);
                 break;
-            case "geraldo":
+            case "Geraldo":
                 name.setText(R.string.geraldo);
                 bio.setText(R.string.profilegeraldobio);
                 Glide.with(getContext()).load(R.drawable.picgeraldo).into(picture);
                 break;
-            case "samy":
+            case "Samy":
                 name.setText(R.string.samy);
                 bio.setText(R.string.profilesamybio);
                 Glide.with(getContext()).load(R.drawable.samy).into(picture);
                 break;
-            case "justin":
+            case "Justin":
                 name.setText(R.string.justin);
                 bio.setText(R.string.profilejustinbio);
                 sunday = view.findViewById(R.id.tv_profileSunday);
@@ -97,6 +97,26 @@ public class ProfileFragment extends Fragment {
                 saturday.setText(R.string.tentoeight);
 
                 Glide.with(getContext()).load(R.drawable.picjustin).into(picture);
+                break;
+            case "Lavar":
+                name.setText(R.string.lavar);
+                bio.setText("Lavar is the newcomer of the LIC Tonsorila Team");
+                sunday = view.findViewById(R.id.tv_profileSunday);
+                monday = view.findViewById(R.id.tv_profileMonday);
+                tuesday = view.findViewById(R.id.tv_profileTuesday);
+                wednesday = view.findViewById(R.id.tv_profileWednesday);
+                thrusday = view.findViewById(R.id.tv_profileThrusday);
+                friday = view.findViewById(R.id.tv_profileFriday);
+                saturday = view.findViewById(R.id.tv_profileSaturday);
+                sunday.setText(R.string.eleventoseven);
+                monday.setText(R.string.notavailable);
+                tuesday.setText(R.string.notavailable);
+                wednesday.setText(R.string.eleventoeight);
+                thrusday.setText(R.string.eleventoeight);
+                friday.setText(R.string.eleventoeight);
+                saturday.setText(R.string.eleventoeight);
+
+                Glide.with(getContext()).load(R.drawable.piclavar).into(picture);
                 break;
         }
 

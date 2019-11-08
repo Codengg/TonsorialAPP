@@ -25,9 +25,9 @@ import androidx.transition.TransitionSet;
 import com.bumptech.glide.Glide;
 
 public class BarberFragment extends Fragment {
-    private final static Integer[] listNames = {R.string.luis, R.string.geraldo, R.string.justin, R.string.samy};
-    private final static Integer[] listPhoto = {R.drawable.picluis, R.drawable.picgeraldo, R.drawable.picjustin, R.drawable.samy};
-    private Button[] listButton = new Button[4];
+    private final static Integer[] listNames = {R.string.luis, R.string.geraldo, R.string.justin, R.string.samy, R.string.lavar};
+    private final static Integer[] listPhoto = {R.drawable.picluis, R.drawable.picgeraldo, R.drawable.picjustin, R.drawable.samy, R.drawable.piclavar};
+    private Button[] listButton = new Button[5];
     private ViewGroup viewGroup;
     //private List<Integer> listDescription = Arrays.asList();
     @Nullable
@@ -55,12 +55,11 @@ public class BarberFragment extends Fragment {
             name.setText(listNames[i]);
             Glide.with(getContext()).load(listPhoto[i]).into(image);
         }
-
         //Actions for Luis
         listButton[0].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                fragmentTrasition("luis");
+                fragmentTrasition("Luis");
             }
         });
 
@@ -68,7 +67,7 @@ public class BarberFragment extends Fragment {
         listButton[1].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                fragmentTrasition("geraldo");
+                fragmentTrasition("Geraldo");
             }
         });
 
@@ -76,7 +75,7 @@ public class BarberFragment extends Fragment {
         listButton[2].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                fragmentTrasition("justin");
+                fragmentTrasition("Justin");
             }
         });
 
@@ -84,7 +83,15 @@ public class BarberFragment extends Fragment {
         listButton[3].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                fragmentTrasition("samy");
+                fragmentTrasition("Samy");
+            }
+        });
+
+        //Actions for Lavar
+        listButton[4].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fragmentTrasition("Lavar");
             }
         });
     }
@@ -124,7 +131,6 @@ public class BarberFragment extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
-
         Glide.get(getContext()).clearMemory();
         getFragmentManager().beginTransaction().remove(BarberFragment.this).commitAllowingStateLoss();
     }

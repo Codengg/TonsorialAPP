@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -120,17 +121,23 @@ public class EventFragment extends Fragment {
         dialog.setCanceledOnTouchOutside(false);
         dialog.show();
 
+        wv_Event.getSettings().setLoadWithOverviewMode(true);
+        wv_Event.getSettings().setUseWideViewPort(true);
         wv_Event.setVerticalScrollBarEnabled(true);
         wv_Event.setHorizontalScrollBarEnabled(true);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            WebView.setWebContentsDebuggingEnabled(false);
+        }
         wv_Event.requestFocus();
 
         //Settings
         WebSettings webSettings = wv_Event.getSettings();
         webSettings.setUserAgentString("BarberShop");
         webSettings.setJavaScriptEnabled(true);
-
+        //https://www.eventbrite.com/o/the-tonsorial-club-27972064347
+        //
         //Load Up web
-        wv_Event.loadUrl("https://www.eventbrite.com/o/lic-tonsorial-24930644401");
+        wv_Event.loadUrl("https://inffuse-calendar2.appspot.com/widget.html?app=calendar&platform=web&id=proj_Xbx0SLvd9USrewZuDkszl");
     }
 
     //SOCIAL MEDIA CALL METHODS/////////////////////////////////////////////////////////////
