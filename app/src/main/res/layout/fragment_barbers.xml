@@ -63,10 +63,6 @@
             <include
                 android:id="@+id/BarberSamy"
                 layout="@layout/barberscard" />
-
-            <include
-                android:id="@+id/BarberLavar"
-                layout="@layout/barberscard" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 

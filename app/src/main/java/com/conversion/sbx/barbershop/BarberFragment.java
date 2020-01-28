@@ -25,9 +25,9 @@ import androidx.transition.TransitionSet;
 import com.bumptech.glide.Glide;
 
 public class BarberFragment extends Fragment {
-    private final static Integer[] listNames = {R.string.luis, R.string.geraldo, R.string.justin, R.string.samy, R.string.lavar};
-    private final static Integer[] listPhoto = {R.drawable.picluis, R.drawable.picgeraldo, R.drawable.picjustin, R.drawable.samy, R.drawable.piclavar};
-    private Button[] listButton = new Button[5];
+    private final static Integer[] listNames = {R.string.luis, R.string.geraldo, R.string.justin, R.string.samy};
+    private final static Integer[] listPhoto = {R.drawable.picluis, R.drawable.picgeraldo, R.drawable.picjustin, R.drawable.samy};
+    private Button[] listButton = new Button[listNames.length];
     private ViewGroup viewGroup;
     //private List<Integer> listDescription = Arrays.asList();
     @Nullable
@@ -84,14 +84,6 @@ public class BarberFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 fragmentTrasition("Samy");
-            }
-        });
-
-        //Actions for Lavar
-        listButton[4].setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                fragmentTrasition("Lavar");
             }
         });
     }
